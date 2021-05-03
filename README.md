@@ -1,3 +1,16 @@
+# Kommentaarid
+
+Lahendamiseks kulus umbes poolteist päeva. Kahjuks polnud mul võimalik varem antud tööga tegelema hakata ja seepärast sain endale võrdlemisi vähe aega lahendamiseks jätta. 
+Jäin rahule sellega, et kõik etapid (vähemalt enda arust) sain lahendatud. Rahule ei jäänud sellega, et ilustamise käigus läks niimõnigi asi katki ja mul ei jäänud aega,
+et neid korda teha. Tõenäoliselt jätab UX ka soovida. Jänni jäin peamiselt Reacti iseärasustega ja nende lahendamine võttis kõige rohkem aega (useEffect hookiga olen ma eriliselt tülis). Sellegipoolest meeldis mulle antud ülesanne väga, eriti meeldis omamoodi püstitus sellele lahenduste otsimine. Loodan, et eriti hullu pole sellest, et
+kasutasin esimese etappi lahendamiseks npm paketti. Olin ülesse otsinud ja otsast hakanud ümber kirjutama täpset valemit, millega oleks saanud 'sunrise' ja 'sunset'i kindlas
+kohas arvutada, ent siis nägin paketti, mis tegi täpselt sama, milleni mina oleks jõudnud.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
