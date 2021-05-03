@@ -1,0 +1,133 @@
+.container {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  overflow: hidden;
+}
+
+.header {
+  position: sticky;
+  min-height: 5vh;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  background-color: #323946;
+  border-bottom: 1px solid;
+  border-color: #333436;
+  margin-bottom: 1vh;
+  width: 100%;
+}
+
+input {
+  width: 25vw;
+  background-color: #323946;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-right: 1px solid;
+  border-color: #333436;
+  font-size: 1.3rem;
+  text-align: center;
+  background: transparent;
+  transition: border-color 0.2s;
+  transition: all 0.5s ease;
+}
+
+.input:hover {
+  background-color: #3f4d68;
+}
+
+.button {
+  width: 25vw;
+  border-right: 1px solid;
+  color: #fff;
+  background-color: #323946;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+  border-color: #333436;
+  border-bottom: 0;
+  border-top: 0;
+}
+
+.button:hover {
+  background-color: #3f4d68;
+}
+
+.button.calendar.true {
+    background-color: #23262c;
+}
+
+.button.calendar.true .dropdown.calendar {
+    display: block;
+    
+}
+
+.button.calendar.false .dropdown.calendar {
+    display: none;
+}
+
+.button.map.true {
+    background-color: #23262c;
+}
+
+.button.map.true .dropdown.map {
+    display: block;
+}
+
+.button.map.false .dropdown.map {
+    display: none;
+}
+
+.modal-close {
+    top: 0;
+    bottom: 0;
+}
+
+.modal-close.map {
+    position: absolute;
+    left: 75%;
+    right: 0;
+}
+
+.modal-close.calendar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 75%;
+    bottom: 0;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    width: 50vw;
+    top: 100%;
+    background-color: #23262c;
+    min-width: 50vw;
+    min-height: 10vh;
+    transition: all .5s ease;
+
+}
+
+.dropdown.map {
+    left: 25%;
+}
+
+.dropdown.calendar {
+    left: 0%;
+}
+
+.leaflet-container {
+    z-index: 10;
+    width: 150%;
+    height: 50vh;
+}
