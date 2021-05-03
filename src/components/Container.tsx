@@ -6,26 +6,44 @@ import RangeDay from "../components/RangeDay";
 import "../Container.css";
 import { LatLng } from "leaflet";
 
+/**
+ * Main container that contains all the logic for the measure-day-length app.
+ */
 export default function Container() {
   const [latitude, setLatitude] = useState(58.36517);
   const [longitude, setLongitude] = useState(26.74113);
   const [calendar, setCalendar] = useState(false);
-  const [map, setMap] = useState(false);
+  const [map, setMap] = useState(true);
+  const [singleDay, selectSingleDay] = useState("");
 
   const toggleCalendar = () => {
+    // button toggle for Calendar (and graph) display. Toggles Map off.
     setCalendar(!calendar);
-  };
-
-  const stopPropagation = (e: any) => {
-    e.stopPropagation();
+    if (!calendar) {
+      setMap(false);
+    }
   };
 
   const toggleMap = () => {
+    // button toggle for Map display. Toggles Calendar off.
     setMap(!map);
+    if (!map) {
+      setCalendar(false);
+    }
+  };
+
+  const toggleSingleDay = () => { // I'm using "a" and "b" as values, because you can't use numeric values in CSS (so as to when one is selected) and because I have more values than 2 (can't use boolean).
+    selectSingleDay("a");
+  };
+
+  const toggleRangeDay = () => { // Info at #L29
+    selectSingleDay("b");
   };
 
   const getLatitude = (latitude: any) => {
+    // callback function for Input component
     if (latitude == "-" || latitude == "-0") {
+      //make-shift error handling, DEFINATELY not the best solution, todo do actual input validation
       setLatitude(-0);
     } else {
       setLatitude(latitude);
@@ -33,14 +51,17 @@ export default function Container() {
   };
 
   const getLongitude = (longitude: any) => {
+    // callback function for Input component
     if (longitude == "-" || longitude == "-0") {
-        setLongitude(-0);
-      } else {
-        setLongitude(longitude);
-      }
+      // same todo as above
+      setLongitude(-0);
+    } else {
+      setLongitude(longitude);
+    }
   };
 
   const getCoords = (coordinates: LatLng) => {
+    // Callback function for Map marker (if the marker gets moved, then it also updates the input boxes).
     getLatitude(coordinates.lat);
     getLongitude(coordinates.lng);
   };
@@ -51,15 +72,29 @@ export default function Container() {
         <div className={"button calendar " + calendar}>
           <div className="modal-close calendar" onClick={toggleCalendar}></div>
           <div className="dropdown calendar">
+            <div className="header buttons">
+              <div className={"button singleDay " + singleDay}>
+                <div
+                  className="modal-close singleDay"
+                  onClick={toggleSingleDay}
+                ></div>
+                Single Day
+              </div>
+              <div className={"button rangeDay " + singleDay}>
+                <div
+                  className="modal-close rangeDay"
+                  onClick={toggleRangeDay}
+                ></div>
+                Day Range
+              </div>
+            </div>
             <SingleDay
-              onClick={stopPropagation}
-              show={false}
+              show={singleDay === "a"}
               latitude={latitude}
               longitude={longitude}
             ></SingleDay>
             <RangeDay
-              onClick={stopPropagation}
-              show={true}
+              show={singleDay === "b"}
               latitude={latitude}
               longitude={longitude}
             ></RangeDay>
@@ -78,6 +113,7 @@ export default function Container() {
           value={longitude}
           getData={getLongitude}
         ></Input>
+
         <div className={"button map " + map}>
           <div className="modal-close map" onClick={toggleMap}></div>
           <div className="dropdown map">

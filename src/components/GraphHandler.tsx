@@ -29,15 +29,15 @@ export default function GraphHandler(props: any) {
             beginAtZero: true,
           },
           layout: {
-              padding: {
-                  bottom: 200,
-                  top: 0
-              }
-          }
+            padding: {
+              bottom: 200,
+              top: 0,
+            },
+          },
         },
       ],
     },
   };
 
-  return <Line data={data} options={options} />
+  return <Line data={data} options={options} />;
 }

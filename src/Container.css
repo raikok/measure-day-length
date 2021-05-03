@@ -58,10 +58,6 @@ input {
   border-top: 0;
 }
 
-.button:hover {
-  background-color: #3f4d68;
-}
-
 .button.calendar.true {
     background-color: #23262c;
 }
@@ -101,9 +97,19 @@ input {
 .modal-close.calendar {
     position: absolute;
     left: 0;
-    top: 0;
     right: 75%;
-    bottom: 0;
+}
+
+.modal-close.singleDay {
+    position: absolute;
+    left: 0;
+    right: 50%;
+}
+
+.modal-close.rangeDay {
+    position: absolute;
+    left: 50%;
+    right: 0;
 }
 
 .dropdown {
@@ -129,5 +135,32 @@ input {
 .leaflet-container {
     z-index: 10;
     width: 150%;
-    height: 50vh;
+    height: 80vh;
+}
+
+.button.singleDay {
+    border-top: 1px solid;
+    border-color: #333436;
+    background-color: #232a36;
+    width: 49.5%;
+}
+
+.button.singleDay.a {
+    background-color: #23262c;
+}
+
+.button.rangeDay {
+    border-top: 1px solid;
+    border-color: #333436;
+    background-color: #232a36;
+    width: 50.5%;
+}
+
+.button.rangeDay.b {
+    background-color: #23262c;
+}
+
+
+.button:hover {
+    background-color: #3f4d68;
 }
